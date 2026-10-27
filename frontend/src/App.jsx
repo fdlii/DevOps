@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API_URL = "http://localhost:8080/api/messages";
+const API_URL = "/api/messages";
 
 function normalizeResult(data) {
   let lines = null;

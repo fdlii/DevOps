@@ -1,0 +1,27 @@
+services:
+  backend:
+    build: ./backend
+    image: backend:2.0
+    container_name: backend
+    restart: always
+    volumes:
+      - ./backend/data.txt:/app/data.txt
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    image: frontend:2.0
+    container_name: frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+    
